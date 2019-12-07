@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div  style="text-align:center" class="border p-4 mb-5">
+    <legend  style="text-align:right"class="border-bottom pb-1 mb-3">اقتراح جديد</legend>
+    <form  dir="ltr"method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input class="btn btn-secondary mt-4" type="submit" value="ارسال">
+    </form>
+</div>
+{% endblock content %}

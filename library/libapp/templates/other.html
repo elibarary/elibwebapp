@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load bootstrap %}
+
+
+
+{% load crispy_forms_tags %}
+
+
+    <div >
+               <div  style="padding:10px">
+            <form method="GET" action="">
+                 <div class="input-group-append">
+                <button  id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+           </div>
+                 <div  class="input-group">
+
+
+            <input  id="ip2" type="text" aria-describedby="button-addon1" dir="ltr" class="form-control bg-light" placeholder="Search" name="q" value="{{ request.GET.q }}"/>
+       <!-- <span class="fa fa-search"></span>-->
+
+       <!--</div>-->
+           </div>
+
+
+
+        </form>
+       </div>
+       <h6 style="text-align:center"> العدد:{{other_number}}</h6>
+
+  <div class="row">
+    <div class="col-md-3 mb-4" style="background-color: #E3E3E3;border-radius: 5px;">
+        <H1 style="text-align:center;">احدث الكتب</H1>
+
+         {% for image in images %}
+
+
+
+         <div class="row">
+
+
+    <img src="/media/{{image.book_image}}" style="padding:5px;  background-size: cover;"  class="img-thumbnail">
+
+
+
+</div>
+
+
+
+
+
+         <!--<div class=" row w-75 p-3" >-->
+         <!--<img class="img-thumbnail"-->
+         <!--alt="Responsive image"-->
+         <!--src="/media/{{image.book_image}}"/></div>-->
+
+
+
+         {% endfor %}
+</div>
+    <div class="col-md-9 mb-4">
+
+
+
+        {% for other in others %}
+
+
+ {% if other.active == True %}
+ {% if forloop.counter|divisibleby:2 %}
+
+<!--<div class="alert alert-primary" role="alert" style="background-color: #1A345A;" >-->
+<!--  <h4  ><a style="color: white;" href="{% url 'book' book.id %}">{{book.title}}</a></h4>-->
+
+  <a style="text-decoration:none" style="color: #F2F2F2;" href="{% url 'others' other.id %}">
+
+      <div class="alert alert-primary" role="alert" style="background-color: #1A345A;" >
+          <div  dir="ltr"class="row"style="text-align: justify; " >
+              <div >
+                  <h6  style="color: #F2F2F2;text-align: justify; " >{{other.title}}</h6>
+              </div>
+              <img  src="/media/cardimage.jpg" style=" border-radius: 50%;position: absolute;right: 10px;" height="35px" >
+
+
+
+          </div>
+
+  </div>
+  </a>
+
+  {% else %}
+    <a style="text-decoration:none" style="color: #F2F2F2;" href="{% url 'others' other.id %}">
+
+
+      <div class="alert alert-primary" role="alert" style="background-color: white;" >
+
+           <div  dir="ltr"class="row"style="text-align: justify; " >
+              <div >
+                   <h6 style="color: #1A345A;" >{{other.title}}</h6>
+              </div>
+              <img  src="/media/cardimage.jpg" style=" border-radius: 50%;position: absolute;right: 10px;" height="35px" >
+
+
+
+          </div>
+
+
+  </div>
+  </a>
+  <!--<p class="lead" style="color: white;" >call_no :  {{book.call_No}}</p>-->
+  <!--  <hr class="my-4"  style="background-color: white;">-->
+  <!--<p style="color: white;" >name : {{book.author}}</p>-->
+  <!--<hr class="my-4"  style="background-color: white;" >-->
+  <!--<p style="color: white;" >speciality : {{book.speciality}}</p>-->
+
+
+{% endif %}
+{% endif %}
+
+  {% endfor %}
+
+
+    </div>
+  </div>
+</div>
+
+{% include 'pagination.html' with page=others %}
+
+
+
+
+{% endblock content %}

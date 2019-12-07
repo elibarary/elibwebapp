@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load bootstrap %}
+
+
+
+{% load crispy_forms_tags %}
+
+
+
+               <div  class="d-flex justify-content-center" style="padding:1%">
+
+
+
+  </div>
+<div class="center" >
+<div  class="row d-flex justify-content-center">
+    <!--<div class="col" style="padding:0.4">-->
+<div style="padding:1%">
+    <a style="text-decoration:none" href="/books">
+<div class="card" style="width: 18rem;background-color:wihte">
+  <img src="/media/searchimg.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"style="text-align:center;color:#08162B">الكتب</p>
+  </div>
+</div>
+ </a>
+
+</div>
+<div style="padding:1%">
+ <a style="text-decoration:none" href="/search">
+<div class="card" style="width: 18rem;background-color:#08162B">
+  <img src="/media/searchimg.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"style="text-align:center;color:white">البحوث</p>
+  </div>
+</div>
+</div>
+ </a>
+
+<!--</div>-->
+<!--<div class="col" style="padding:0.4%">-->
+<div style="padding:1%">
+        <a style="text-decoration:none" href="/thesis">
+
+<div class="card" style="width: 18rem;background-color:#08162B">
+  <img src="/media/thesisimg.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"style="text-align:center;color:white">الأطاريح والرسائل</p>
+  </div>
+</div>
+</div>
+ </a>
+<div style="padding:1%">
+    <a style="text-decoration:none" href="/other">
+<div class="card" style="width: 18rem;background-color:wihte">
+  <img src="/media/messageimg.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"style="text-align:center;color:#08162B">اخرى</p>
+  </div>
+</div>
+ </a>
+</div>
+
+
+
+
+<!--</div>-->
+</div>
+</div>
+
+
+
+
+
+
+
+{% endblock content %}

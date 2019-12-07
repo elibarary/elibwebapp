@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load filename %}
+
+<div class="card text-center">
+  <div class="card-header">
+      {{search.title}}
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Call No : {{search.call_No}}</h5>
+    <h5 class="card-title">Title : {{search.title}}</h5>
+    <h5 class="card-title">Author : {{search.author}}</h5>
+    <h5 class="card-title">Speciality : {{search.speciality}}</h5>
+
+  </div>
+  <div class="card-footer text-muted">
+  نشر في  {{search.date}}
+  </div>
+</div>
+
+  {% if user.is_authenticated %}
+
+
+      {% for download in files %}
+      {% ifequal search.call_No download.file|filename %}
+  <a href="/media/{{ download.file }}">
+
+    <button class="btn" style="width:100%">File Here</button>
+
+</a>
+{% endifequal %}
+{% endfor %}
+
+
+{% endif %}
+
+
+{% endblock content %}

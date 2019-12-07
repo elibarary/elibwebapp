@@ -1,0 +1,43 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+{% load filename %}
+
+<div class="card text-center">
+  <div class="card-header">
+      {{thesis.title}}
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Call No : {{thesis.call_No}}</h5>
+    <h5 class="card-title">Title : {{thesis.title}}</h5>
+    <h5 class="card-title">Author : {{thesis.author}}</h5>
+    <h5 class="card-title">Speciality : {{thesis.speciality}}</h5>
+    <h5 class="card-title">اسم الجامعة : {{thesis.اسم_الجامعة}}</h5>
+    <h5 class="card-title">اسم المشرف : {{thesis.اسم_المشرف}}</h5>
+    <h5 class="card-title">Request number : {{thesis.request_number}}</h5>
+    
+
+  </div>
+  <div class="card-footer text-muted">
+  نشر في  {{thesis.date}}
+  </div>
+</div>
+
+  {% if user.is_authenticated %}
+
+
+      {% for download in files %}
+      {% ifequal thesis.call_No download.file|filename %}
+  <a href="/media/{{ download.file }}">
+
+    <button class="btn" style="width:100%">File Here</button>
+
+</a>
+{% endifequal %}
+{% endfor %}
+
+
+{% endif %}
+
+
+{% endblock content %}
